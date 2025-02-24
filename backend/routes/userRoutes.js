@@ -23,10 +23,6 @@ const authenticateUser = (req, res, next) => {
     }
 };
 
-// test
-router.get("/", (req, res) => {
-    res.send("test ran succesfully")
-})
 
 // User Signup
 router.post('/signup', async (req, res) => {
