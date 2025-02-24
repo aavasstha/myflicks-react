@@ -24,7 +24,7 @@ const authenticateUser = (req, res, next) => {
 };
 
 // test
-router.get("/test", (req, res) => {
+router.get("/", (req, res) => {
     res.send("test ran succesfully")
 })
 
