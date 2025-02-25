@@ -11,10 +11,6 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => { 
-    res.send(<a href="https://myflicksv2.netlify.app">Fronend App</a>)
-})
-
 // Routes
 app.use("/api/users", userRoutes);
 
