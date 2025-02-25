@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => { 
+    res.send(<a href="https://myflicksv2.netlify.app/"><h1>Click here to go to the main app</h1></a>)
+})
+
 // Routes
 app.use("/api/users", userRoutes);
 

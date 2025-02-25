@@ -24,6 +24,7 @@ const authenticateUser = (req, res, next) => {
 };
 
 
+
 // User Signup
 router.post('/signup', async (req, res) => {
     try {
