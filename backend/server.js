@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => { 
-    res.send(<a href="https://myflicksv2.netlify.app/"><h1>Click here to go to the main app</h1></a>)
+    res.send(<a href="https://myflicksv2.netlify.app">Fronend App</a>)
 })
 
 // Routes
