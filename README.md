@@ -21,6 +21,11 @@ Find trending movies, search for your favorites.
 - PostgreSQL (Supabase) 🗄️
 - JWT Authentication 🔑
 
+### **Tests**
+- Jest 🗄️
+- Supertest 🗄️
+- npm test 🛠️
+
 
 ### **Deployment**
 - **Frontend:** Netlify 🌍
