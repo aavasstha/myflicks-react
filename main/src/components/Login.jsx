@@ -6,7 +6,6 @@ const Login = () => {
     const [errorMsg, setErrorMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
-    const API_URL = import.meta.env.VITE_API_BASE_URL
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,7 +13,6 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        const { email, password } = formData;
         try {
             const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/login`, {
                 method: "POST",
@@ -38,6 +36,7 @@ const Login = () => {
             setErrorMsg(error.message); // Display error message from backend
         } finally {
             setIsLoading(false);
+
         }
 
     };

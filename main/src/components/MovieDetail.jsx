@@ -38,7 +38,7 @@ const MovieDetail = () => {
     }, [id]);
 
     if (loading) return <LoadingSpinner />;
-    if (error) return <p className="text-center text-red-500">{error}</p>;
+    if (error) return <h1 className="text-center text-red-500">{error}</h1>;
 
     return (
         <div className="min-h-screen flex flex-col items-center bg-gray-900 text-white p-6">

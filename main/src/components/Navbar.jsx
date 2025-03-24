@@ -19,6 +19,12 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
                 {isLoggedIn ? (
                     <>
                         <button
+                            onClick={() => navigate("/lists")}
+                            className="bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                        >
+                            Your Lists
+                        </button>
+                        <button
                             onClick={() => navigate("/profile")}
                             className="bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-600 transition"
                         >

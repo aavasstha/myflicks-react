@@ -6,6 +6,7 @@ import Login from './components/Login';
 import SignUp from './components/Signup';
 import MovieDetail from './components/MovieDetail';
 import Profile from './components/Profile';
+import UserLists from './components/UserLists';
 
 
 // 
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/movie/:id' element={<MovieDetail />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/lists' element={<UserLists />} />
       </Routes>
     </BrowserRouter>
   )

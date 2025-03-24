@@ -7,7 +7,7 @@ const SignUp = () => {
     const [errorMsg, setErrorMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
-    const API_URL = import.meta.env.VITE_API_BASE_URL
+
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -73,6 +73,7 @@ const SignUp = () => {
                         <input
                             type="password"
                             name="password"
+                            minLength="8"
                             placeholder="Password"
                             value={formData.password}
                             onChange={handleChange}
