@@ -120,7 +120,9 @@ const UserLists = () => {
                     >
                         {isLoading ? 'Creating...' : 'Create'}
                     </button>
+
                 </div>
+                <a href="/" className="text-purple-500 hover:underline">Go home</a>
 
 
 
