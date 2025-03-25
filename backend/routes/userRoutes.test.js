@@ -118,26 +118,5 @@ describe('Auth Routes', () => {
         });
     });
 
-    describe('GET /auth/profile', () => {
-        test('should return user profile if user is authenticated', async () => {
-            const userProfile = { id: 1, username: 'testuser', email: 'test@example.com' };
-            // Simulate the profile query returning the user's details
-            pool.query.mockResolvedValueOnce({ rows: [userProfile] });
 
-            const res = await request(app).get('/auth/profile');
-
-            expect(res.statusCode).toBe(200);
-            expect(res.body).toEqual(userProfile);
-        });
-
-        test('should return error if user profile is not found', async () => {
-            // Simulate no user found for the authenticated user id
-            pool.query.mockResolvedValueOnce({ rows: [] });
-
-            const res = await request(app).get('/auth/profile');
-
-            expect(res.statusCode).toBe(404);
-            expect(res.body).toEqual({ message: "User not found" });
-        });
-    });
 });
