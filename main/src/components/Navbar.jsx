@@ -24,12 +24,12 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
                         >
                             Your Lists
                         </button>
-                        <button
+                        {/* <button
                             onClick={() => navigate("/profile")}
                             className="bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-600 transition"
                         >
                             Profile
-                        </button>
+                        </button> */}
                         <button
                             onClick={handleLogout}
                             className="bg-red-500 px-4 py-2 rounded-md hover:bg-red-600 transition"

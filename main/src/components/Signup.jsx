@@ -33,7 +33,7 @@ const SignUp = () => {
             localStorage.setItem("token", data.token);
 
             // Redirect user to home or dashboard
-            navigate("/");
+            navigate("/login");
 
         } catch (error) {
             setErrorMsg(error.message); // Display error message from backend

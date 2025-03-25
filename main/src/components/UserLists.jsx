@@ -6,14 +6,16 @@ import { useNavigate } from "react-router-dom";
 
 const UserLists = () => {
     const [lists, setLists] = useState([]);
+
     const [listName, setListName] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
-    const { id } = jwtDecode(localStorage.getItem("token"));
+
 
     const loadLists = async () => {
+        const { id } = jwtDecode(localStorage.getItem("token"));
         if (!id) {
             setErrorMsg("Please login");
             navigate("/login");
