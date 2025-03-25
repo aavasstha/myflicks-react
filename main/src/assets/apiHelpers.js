@@ -1,7 +1,13 @@
-const API_BASE = 'http://localhost:4000/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://myflicks-react-backend.onrender.com';
+
+
+export async function getUserLists(userId) {
+  const res = await fetch(`${VITE_API_BASE_URL}/api/lists/${userId}`);
+  return res.json();
+}
 
 export async function createList(userId, name) {
-  const res = await fetch(`${API_BASE}/lists`, {
+  const res = await fetch(`${VITE_API_BASE_URL}/api/lists`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ user_id: userId, name }),
@@ -10,13 +16,9 @@ export async function createList(userId, name) {
   return res.json();
 }
 
-export async function getUserLists(userId) {
-  const res = await fetch(`${API_BASE}/lists/${userId}`);
-  return res.json();
-}
 
 export async function addMovieToList(listId, movie) {
-  const res = await fetch(`${API_BASE}/lists/${listId}/movies`, {
+  const res = await fetch(`${VITE_API_BASE_URL}/api/lists/${listId}/movies`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(movie),
@@ -25,12 +27,12 @@ export async function addMovieToList(listId, movie) {
 }
 
 export async function getMoviesFromList(listId) {
-  const res = await fetch(`${API_BASE}/lists/${listId}/movies`);
+  const res = await fetch(`${VITE_API_BASE_URL}/api/lists/${listId}/movies`);
   return res.json();
 }
 
 export async function removeMovieFromList(listId, movieId) {
-  await fetch(`${API_BASE}/lists/${listId}/movies/${movieId}`, {
+  await fetch(`${VITE_API_BASE_URL}/lists/${listId}/api/movies/${movieId}`, {
     method: 'DELETE',
   });
 }
