@@ -41,7 +41,6 @@ const UserLists = () => {
     };
 
     const handleCreateList = async (e) => {
-
         setErrorMsg(""); // Clear any previous error
 
         // Ensure the list name isn't empty
@@ -56,15 +55,15 @@ const UserLists = () => {
             // Call the API to create the list
             const response = await createList(id, listName);
 
-            // Check if the backend returned an error (e.g., duplicate error)
-            if (response.error) {
-                setErrorMsg(response.error);
-                setTimeout(() => setErrorMsg(""), 3000);
-            } else {
-                // Clear the input and reload the lists if creation was successful
+            if (!response.ok) {
+                // If there's an error, display the error message
+                setErrorMsg(response.message);
+                setTimeout(() => setErrorMsg(""), 5000);
+            }
+                // If creation was successful, clear the input and reload the lists
                 setListName('');
                 await loadLists();
-            }
+            
         } catch (error) {
             console.error("Error creating list:", error);
             setErrorMsg("Error creating your list.");
@@ -73,7 +72,6 @@ const UserLists = () => {
             // Optionally clear the error message after a few seconds
             setTimeout(() => setErrorMsg(""), 5000);
         }
-
     };
 
     useEffect(() => {
@@ -92,7 +90,7 @@ const UserLists = () => {
                 <h1 className="text-3xl font-bold">Your Lists</h1>
                 <ul className="mb-4">
                     {errorMsg && <p className="text-red-500 text-center mb-4">{errorMsg}</p>}
-                    {lists.length===0 ? <p className="text-white-500 text-center mb-4">You don't have any lists.</p>: ""}
+                    {lists.length === 0 ? <p className="text-white-500 text-center mb-4">You don't have any lists.</p> : ""}
                     {lists.map(list => (
                         <li
                             key={list.id}
