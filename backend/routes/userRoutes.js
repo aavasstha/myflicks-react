@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const pool = require('../db');
-const authenticateUser = require('../middleware/authenticateUser')
+
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET;
