@@ -60,6 +60,7 @@ const UserLists = () => {
         }
 
         setIsLoading(true);
+        const { id } = jwtDecode(localStorage.getItem("token"));
         try {
             // Call the API to create the list
             const response = await createList(id, listName);
