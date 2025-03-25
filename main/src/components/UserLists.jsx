@@ -32,7 +32,7 @@ const UserLists = () => {
             console.error("Error loading lists:", error);
             setErrorMsg(error.message || "Error loading lists. Please try again.");
             // Optionally clear the error message after 5 seconds
-            setTimeout(() => setErrorMsg(""), 5000);
+            setTimeout(() => setErrorMsg(""), 3000);
         } finally {
             setListName("")
             setIsLoading(false);
@@ -68,6 +68,7 @@ const UserLists = () => {
             // Check if the backend returned an error (e.g., duplicate error)
             if (response.error) {
                 setErrorMsg(response.error);
+                setTimeout(() => setErrorMsg(""), 3000);
             } else {
                 // Clear the input and reload the lists if creation was successful
                 setListName('');
@@ -100,6 +101,7 @@ const UserLists = () => {
                 <h1 className="text-3xl font-bold">Your Lists</h1>
                 <ul className="mb-4">
                     {errorMsg && <p className="text-red-500 text-center mb-4">{errorMsg}</p>}
+                    {lists.length===0 ? <p className="text-white-500 text-center mb-4">You don't have any lists.</p>: ""}
                     {lists.map(list => (
                         <li
                             key={list.id}
