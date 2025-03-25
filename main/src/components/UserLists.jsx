@@ -50,15 +50,6 @@ const UserLists = () => {
             return;
         }
 
-        // Client-side check: see if the list already exists (case-insensitive)
-        const duplicate = lists.find(
-            (list) => list.name.toLowerCase() === listName.trim().toLowerCase()
-        );
-        if (duplicate) {
-            setErrorMsg("List already exists.");
-            return;
-        }
-
         setIsLoading(true);
         const { id } = jwtDecode(localStorage.getItem("token"));
         try {
